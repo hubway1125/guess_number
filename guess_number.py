@@ -1,6 +1,14 @@
 import random
 
-r = random.randint(0, 100)
+def generate_answer():
+	start = input('請決定隨機數字範圍開始值: ')
+	end = input('請決定隨機數字範圍結束值: ')
+	start = int(start)
+	end = int(end)
+
+	r = random.randint(start, end)
+	return r
+r = generate_answer()
 count = 0
 while True:
 	count += 1
@@ -9,11 +17,11 @@ while True:
 	if num == r:
 		print('你猜中了')
 		is_again = input('再玩一次?: ')
-		if is_again == "是":
-			r = random.randint(0, 100)
+		if is_again == "Y":
+			generate_answer()
 			count = 0
 			continue
-		elif is_again == "否":
+		elif is_again == "N":
 			break
 	elif num > r:
 		print('比答案大')
